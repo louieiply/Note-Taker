@@ -1,9 +1,11 @@
 const notes = require('express').Router();
-const dbJson = require('../db/db.json');
-const  {readAndAppend, genID, readFromFile}  = require('../helper/utils.js');
+const  {readAndAppend, writeToFile, genID, readFromFile}  = require('../helper/utils.js');
 
 notes.get('/', (req,res) =>{
-    res.json(dbJson);
+    readFromFile('./db/db.json').then((data) =>
+    res.json(JSON.parse(data))
+    );
+
 });
 
 notes.post('/', (req,res) =>{
@@ -17,20 +19,30 @@ notes.post('/', (req,res) =>{
             "text":text,
             "id":genID(),
         }
-            readAndAppend(note, "./db/db.json");
-            console.log("note added successfully!!");
+    readAndAppend(note, "./db/db.json");
+    res.json("note added successfully!!");
+    }
+    else{
+    res.json("note added unsuccessfully!!");
+
     }
 });
 
 notes.delete('/:id', (req,res) =>{
     const{id}= req.params;
     console.log(id);
-    readFromFile("../db/db.json", 'utf8', (err,notes)=>{
-        console.log();
-        // notes.forEach(element => {
-        //     console(element);
-        // });
-    });
+    readFromFile('./db/db.json')
+        .then((data) =>JSON.parse(data))
+        .then((array_notes) => {
+            const return_array  = array_notes.filter((note) => note.id != id);
+            
+            writeToFile('./db/db.json',return_array);
+            res.json({status: "Successful"});
+
+        });
+
+
+    
 });
 
 module.exports = notes;
