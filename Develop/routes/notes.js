@@ -12,8 +12,7 @@ notes.post('/', (req,res) =>{
 
     const {text, title} = req.body;
     
-    if(text || title){
-        console.log(req.body);
+    if(text != "" && title != ""){
         const note = {
             "title":title,
             "text":text,
@@ -21,6 +20,7 @@ notes.post('/', (req,res) =>{
         }
     readAndAppend(note, "./db/db.json");
     res.json("note added successfully!!");
+    console.log("Note added.");
     }
     else{
     res.json("note added unsuccessfully!!");
@@ -30,7 +30,6 @@ notes.post('/', (req,res) =>{
 
 notes.delete('/:id', (req,res) =>{
     const{id}= req.params;
-    console.log(id);
     readFromFile('./db/db.json')
         .then((data) =>JSON.parse(data))
         .then((array_notes) => {
@@ -38,7 +37,7 @@ notes.delete('/:id', (req,res) =>{
             
             writeToFile('./db/db.json',return_array);
             res.json({status: "Successful"});
-
+            console.log("Note deleted.");
         });
 
 
