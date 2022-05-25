@@ -28,27 +28,27 @@ Step 3: npm i (install all components from the package.json)
 
 Firstly, you need to run "node server.js" to execute the application.
 
-![screenshot1](./Develop/Screenshots/screenshot1.png)
+![screenshot1](./Screenshots/screenshot1.png)
 
 After you started to execute the application. A message will be shown.
 
-![screenshot2](./Develop/Screenshots/screenshot2.png)
+![screenshot2](./Screenshots/screenshot2.png)
 
 When a note has been saved.
 
-![screenshot3](./Develop/Screenshots/screenshot3.png)
+![screenshot3](./Screenshots/screenshot3.png)
 
-![screenshot5](./Develop/Screenshots/screenshot5.png)
+![screenshot5](./Screenshots/screenshot5.png)
 
 When a note has been deleted.
 
-![screenshot4](./Develop/Screenshots/screenshot4.png)
+![screenshot4](./Screenshots/screenshot4.png)
 
 Application Screenshots
 
-![screenshot6](./Develop/Screenshots/screenshot6.png)
+![screenshot6](./Screenshots/screenshot6.png)
 
-![screenshot7](./Develop/Screenshots/screenshot7.png)
+![screenshot7](./Screenshots/screenshot7.png)
 
 
 
