@@ -23,6 +23,7 @@ Step 3: npm i (install all components from the package.json)
 
 ## Usage
 
+Deployed link [CLick me](https://note-taker-louie.herokuapp.com/)
 
 ### Screenshot
 
